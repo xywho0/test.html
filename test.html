@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEHEHEHE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .button:hover {
+            background-color: #e0e0e0;
+        }
+        #result {
+            margin-top: 30px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        #image {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="question">Pwedi ta ka gwa?</div>
+        <button class="button" onclick="showResult('yes')">Yes</button>
+        <button class="button" onclick="showResult('no')">No</button>
+
+        <div id="result"></div>
+        <img id="image" src="" alt="Dynamic Image">
+    </div>
+
+    <script>
+        function showResult(answer) {
+            const resultDiv = document.getElementById('result');
+            const image = document.getElementById('image');
+            
+            if (answer === 'yes') {
+                resultDiv.textContent = "Yeahey! San o?";
+                resultDiv.style.color = "green";
+                image.src = 'happy.jpg'; // Update image source
+            } else {
+                resultDiv.textContent = "AHAAYYYYYYYYYYYYYYY";
+                resultDiv.style.color = "red";
+                image.src = 'sadz.jpg'; // Update image source
+            }
+            
+            // Show and resize the image
+            image.style.display = 'block';
+            image.onload = function() {
+                image.style.maxWidth = '400px'; // Adjust width as needed
+                image.style.height = 'auto';   // Maintain aspect ratio
+            };
+        }
+    </script>
+
+</body>
+</html>
